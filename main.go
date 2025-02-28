@@ -95,12 +95,9 @@ func main() {
 		log.Printf("เริ่มต้นด้วย URL %d รายการ", len(currentURLs))
 	}
 
-	// ตั้งค่า ticker สำหรับยิง request ทุก 30 วินาที
-	ticker := time.NewTicker(30 * time.Second)
+	ticker := time.NewTicker(60 * time.Second)
 
-	// ทำงานตลอดไป
 	for range ticker.C {
-		// อัปเดตข้อมูล URL ล่าสุดจากฐานข้อมูลก่อนยิง request
 		updateURLs()
 
 		urlMutex.RLock()
